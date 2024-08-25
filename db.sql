@@ -100,5 +100,16 @@ alter table account rename to account_details;
 desc account_details;
 
 
+-- On Delete Cascade or On Delete Cascade Null 
+
+create table order_detail (
+	order_id int primary key, 
+    name varchar(255) unique , 
+    cust_id int ,
+    foreign key (cust_id) references worker(worker_id) on delete cascade
+);
+
+insert into order_detail(order_id , name , cust_id) values(01 , 'biscuit' , 001);
+select * from order_detail;
 
 
